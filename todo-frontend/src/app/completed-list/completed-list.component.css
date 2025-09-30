@@ -1,0 +1,61 @@
+/* completed-todo.component.css */
+
+/* Page container */
+:host {
+  display: block;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #fffbea, #f5f5dc);
+  min-height: 100vh;
+  padding: 30px;
+  color: #2f4f4f;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #228B22;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  border-bottom: 2px solid #ffa500;
+  display: block;
+  padding-bottom: 5px;
+}
+
+/* Completed todo container */
+div {
+  background: #fdf6e3;
+  border: 2px solid #228B22;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 500px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Add a vintage green-orange accent for completed items */
+div::before {
+  content: "✅";
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #ffa500;
+}
+
+/* Hover effect */
+div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  background: #fdf2d0;
+}
+
+/* Extra touch for achievement feel */
+div {
+  background-image: linear-gradient(to right, #fffacd, #f5deb3);
+}

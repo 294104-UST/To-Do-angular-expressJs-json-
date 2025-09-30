@@ -1,0 +1,37 @@
+<p>Add Your To-do</p>
+<form [formGroup]="todoForm" (ngSubmit)="submitHandle()">
+<div>
+    <label>Task Name :</label>
+    <input
+        type="text"
+        formControlName="task"
+    />
+    <div *ngIf="todoForm.get('task')?.hasError('required') && todoForm.get('task')?.touched">Task is required</div>
+</div>
+<div>
+    <label>Status :</label>
+    <select formControlName="status">
+        <option value="pending">pending</option>
+        <option value="on going">on going</option>
+        <option value="completed">completed</option>
+    </select>
+    <div *ngIf="todoForm.get('status')?.hasError('required')&& todoForm.get('status')?.touched">status is required</div>
+</div>
+<div>
+    <label>Description :</label>
+    <input
+        type="text"
+        formControlName="desc"
+    />
+    <div *ngIf="todoForm.get('desc')?.hasError('required')&& todoForm.get('desc')?.touched">desc is required</div>
+</div>
+<div>
+    <label>Completion Date :</label>
+    <input
+        type="date"
+        formControlName="date"
+    />
+    <div *ngIf="todoForm.get('date')?.hasError('required')&& todoForm.get('date')?.touched">date is required</div>
+</div>
+<button type="submit" [disabled]="todoForm.invalid">Add</button>
+</form>

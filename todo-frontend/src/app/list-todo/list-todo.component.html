@@ -1,0 +1,32 @@
+<div>
+  <h2>Welcome to todos!!!!</h2>
+  <p>Lets set your todos!!</p>
+</div>
+<div>
+  <button routerLink="/add">➕ADD TODO</button>
+  <button routerLink="/completed">✅Completed Todo</button>
+</div>
+<div class="lists">
+  <li *ngFor="let tod of todoList">
+    <br>
+    {{tod.task}}<br>
+    status:{{tod.status}}
+    <button (click)="viewTodo(tod.id)">view Details</button>
+    <button (click)="deleteTodo(tod.id)">delete</button>
+    <div *ngIf="viewClicked==true&& tod.id==oneTodo?.id" class="todo-details">
+      {{oneTodo?.task}}<br>
+      {{oneTodo?.status}}<br>
+      {{oneTodo?.desc}}<br>
+      {{oneTodo?.date}}<br>
+      <button (click)="viewClose()">Close</button>
+    </div>
+    <div *ngIf="tod.status=='pending'">
+      <button (click)="statusUpdate(tod.id,'on going')">on going</button>
+      <button (click)="statusUpdate(tod.id,'completed')">completed</button>
+    </div>
+    <div *ngIf="tod.status=='on going'">
+      <button (click)="statusUpdate(tod.id,'completed')">completed</button>
+    </div>
+  </li>
+</div>
+

@@ -1,0 +1,89 @@
+/* Page container */
+:host {
+  display: block;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #fdf6e3, #fef9d7);
+  color: #3b3b3b;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Heading */
+p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #556b2f; /* dark olive green */
+  margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 25px;
+  background: #e9f5db; /* soft green card */
+  border: 1px solid #c9d99e;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Each input group */
+div {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #8b5e3c; /* warm brown */
+}
+
+/* Inputs and select */
+input[type="text"],
+input[type="date"],
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #c9d99e;
+  font-size: 1rem;
+  background: #fffbea;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: #ffa94d;
+  box-shadow: 0 0 5px rgba(255,165,0,0.3);
+  outline: none;
+}
+
+/* Error messages */
+div > div {
+  color: #e76f51; /* orange-red */
+  font-size: 0.85rem;
+  margin-top: 3px;
+  font-style: italic;
+}
+
+/* Submit button */
+button[type="submit"] {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #ffcc66; /* warm yellow-orange */
+  color: #3b3b3b;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background: #ffa94d; /* deeper orange */
+  transform: scale(1.05);
+}
