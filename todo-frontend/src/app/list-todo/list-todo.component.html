@@ -5,6 +5,16 @@
 <div>
   <button routerLink="/add">➕ADD TODO</button>
   <button routerLink="/completed">✅Completed Todo</button>
+  <label>
+    🔍
+    <input type="text" [(ngModel)]="searchWord" (ngModelChange)="searchHandle()">
+  </label>
+</div>
+<div *ngIf="searchedTodo">
+    <li *ngFor="let stod of searchedTodo">
+        {{stod.task}}<br>
+        {{stod.status}}
+    </li>
 </div>
 <div class="lists">
   <li *ngFor="let tod of todoList">
@@ -13,6 +23,8 @@
     status:{{tod.status}}
     <button (click)="viewTodo(tod.id)">view Details</button>
     <button (click)="deleteTodo(tod.id)">delete</button>
+    <!-- <button (click)="editTodo(tod.id)">edit</button> -->
+    <button (click)="editTodo(tod.id)"> {{ viewEdit  ? 'Close' : 'Edit' }}</button>
     <div *ngIf="viewClicked==true&& tod.id==oneTodo?.id" class="todo-details">
       {{oneTodo?.task}}<br>
       {{oneTodo?.status}}<br>
@@ -26,6 +38,42 @@
     </div>
     <div *ngIf="tod.status=='on going'">
       <button (click)="statusUpdate(tod.id,'completed')">completed</button>
+    </div>
+
+    <!-- edit form part -->
+    <div *ngIf="viewEdit&& tod.id==dataForEdit?.id">
+       <form [formGroup]="etodoForm" (ngSubmit)="editHandle(tod.id)">
+          <div>
+              <label>Task Name :</label>
+              <input
+                  type="text"
+                  formControlName="task"
+              />
+          </div>
+          <div>
+              <label>Status :</label>
+              <select formControlName="status">
+                  <option value="pending">pending</option>
+                  <option value="on going">on going</option>
+                  <option value="completed">completed</option>
+              </select>
+          </div>  
+          <div>
+              <label>Description :</label>
+              <input
+                  type="text"
+                  formControlName="desc"
+              />
+          </div>
+          <div>
+              <label>Completion Date :</label>
+              <input
+                  type="date"
+                  formControlName="date"
+              />
+          </div>
+          <button type="submit">Update</button>
+        </form>
     </div>
   </li>
 </div>

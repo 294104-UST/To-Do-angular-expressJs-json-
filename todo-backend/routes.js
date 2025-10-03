@@ -59,6 +59,17 @@ router.patch('/patch/:tid',async (req,res)=>{
     }
 })
 
+router.put(`/put/:tid`,async (req,res)=>{
+    try{
+        const todId=req.params.tid;
+        const editRes=await axios.put(`${url}/${todId}`,req.body)
+        res.status(200).json(editRes.data);
+    }
+    catch(e){
+        res.status(400).json({message:e.message});
+    }
+})
+
 
 module.exports=router;
 

@@ -32,4 +32,9 @@ export class TodoService {
     console.log(`the url from service is : ${this.baseUrl}/patch/${tid}`)
     return this.http.patch<string>(`${this.baseUrl}/patch/${tid}`,stat);
   }
+
+  putTodo(tid:number,upTodo:Todo){
+     console.log(`the url from service is : ${this.baseUrl}/put/${tid}`)
+     return this.http.put<Todo>(`${this.baseUrl}/put/${tid}`,upTodo)
+  }
 }

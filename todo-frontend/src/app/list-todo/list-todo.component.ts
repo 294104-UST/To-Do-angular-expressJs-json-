@@ -3,18 +3,35 @@ import { TodoService } from '../service/todo.service';
 import { Todo } from '../todoModel';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { filter, map, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-list-todo',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,ReactiveFormsModule,FormsModule],
   templateUrl: './list-todo.component.html',
   styleUrl: './list-todo.component.css'
 })
 export class ListTodoComponent implements OnInit {
-constructor(private todoservice:TodoService){}
+  etodoForm:FormGroup;
+  dataForEdit?:Todo;
+constructor(private todoservice:TodoService,private fb:FormBuilder){
+  this.etodoForm=fb.group({
+      task:[""],
+      status:[""],
+      desc:[""],
+      date:[""]
+    });
+}
   todoList:Todo[]=[]
   oneTodo?: Todo;
   viewClicked:boolean=false;
+  //viewEdit:boolean=false;
+  viewEdit:boolean=false;
+  searchWord:string="";
+  //searchedTodo$:Observable<Todo[]>=of([]);
+  searchedTodo:Todo[]=[]
+  
   ngOnInit(): void {
     this.loadData();
   }
@@ -62,6 +79,42 @@ constructor(private todoservice:TodoService){}
         // this.todoservice.getAllTodo().subscribe(data => {
         // this.todoList = data;
         // });      
+    })
+  }
+  editTodo(tid:number){
+    //this.viewEdit=true;
+    this.viewEdit=!this.viewEdit;
+    this.todoservice.getOneTodo(tid).subscribe(data=>{
+      this.dataForEdit=data;
+      this.etodoForm.patchValue({
+        task: data.task,
+        status: data.status,
+        desc: data.desc,
+        date: data.date
+      });
+    })
+  }
+  editHandle(tid:number){
+    this.viewEdit=false;
+    this.todoservice.putTodo(tid,this.etodoForm.value).subscribe(()=>{
+          this.todoservice.getAllTodo().subscribe(data => {
+          this.todoList = data.filter(p=>p.status!='completed');
+        });
+    })
+  }
+
+  //to handle search
+  searchHandle(){
+    console.log(this.searchWord);
+    this.todoservice.getAllTodo().pipe(
+      map(todos=>todos.filter(t=>t.task.includes(this.searchWord)))
+    ).subscribe(data=>{
+      if(this.searchWord==""){
+        this.searchedTodo=[];
+      }
+      else{
+        this.searchedTodo=data;
+      }
     })
   }
 }
