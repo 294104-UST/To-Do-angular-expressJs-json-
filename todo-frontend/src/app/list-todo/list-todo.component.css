@@ -132,3 +132,41 @@ div[ngIf] {
 .todo-details button:hover {
   background: #d1495b;
 }
+
+/* for upcoming todos */
+
+.upcoming-section {
+  background-color: #fff6e6;
+  border: 1px solid #f0b35c;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.upcoming-section h3 {
+  margin-bottom: 10px;
+  color: #b96b00;
+}
+
+.upcoming-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.upcoming-section li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin: 5px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ffd9a3;
+}
+
+.upcoming-section .date {
+  color: #d98200;
+  font-weight: bold;
+}
+

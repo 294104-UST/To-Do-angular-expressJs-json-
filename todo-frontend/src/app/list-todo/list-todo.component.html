@@ -5,6 +5,7 @@
 <div>
   <button routerLink="/add">➕ADD TODO</button>
   <button routerLink="/completed">✅Completed Todo</button>
+  <!-- search todo -->
   <label>
     🔍
     <input type="text" [(ngModel)]="searchWord" (ngModelChange)="searchHandle()">
@@ -16,6 +17,18 @@
         {{stod.status}}
     </li>
 </div>
+
+<!-- for upcoming todo -->
+<div class="upcoming-section" *ngIf="upcomingTodos.length>0">
+  <h3>🗓️ Upcoming Todos (Next 5 Days)</h3>
+  <ul>
+    <li *ngFor="let todo of upcomingTodos">
+      <strong>{{ todo.task }}</strong> — due on 
+      <span class="date">{{ todo.date }}</span>
+    </li>
+  </ul>
+</div>
+
 <div class="lists">
   <li *ngFor="let tod of todoList">
     <br>

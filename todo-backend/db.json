@@ -5,7 +5,7 @@
       "task": "cut veggies",
       "status": "on going",
       "desc": "cut into rectangle shapes",
-      "date": "17-09-25"
+      "date": "17-10-25"
     },
     {
       "id": "2",
@@ -19,7 +19,7 @@
       "task": "learn angular",
       "status": "pending",
       "desc": "studying hard",
-      "date": "2025-09-23"
+      "date": "2025-10-10"
     },
     {
       "id": "4",
@@ -48,6 +48,13 @@
       "desc": "go with best friend",
       "date": "2025-11-20",
       "id": "7"
+    },
+    {
+      "id": "8",
+      "task": "go for marathon",
+      "status": "completed",
+      "desc": "practice daily ",
+      "date": "2025-10-08"
     }
   ]
 }

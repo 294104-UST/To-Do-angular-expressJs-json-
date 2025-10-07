@@ -31,9 +31,11 @@ constructor(private todoservice:TodoService,private fb:FormBuilder){
   searchWord:string="";
   //searchedTodo$:Observable<Todo[]>=of([]);
   searchedTodo:Todo[]=[]
+  upcomingTodos:Todo[]=[]
   
   ngOnInit(): void {
     this.loadData();
+    this.upcomeTodo();
   }
 
   loadData(){
@@ -68,12 +70,14 @@ constructor(private todoservice:TodoService,private fb:FormBuilder){
         if(stat=='completed'){
           this.todoservice.getAllTodo().subscribe(data => {
         this.todoList = data.filter(p=>p.status!='completed');
+        this.upcomeTodo();
         });
         }
 
         else{
           this.todoservice.getAllTodo().subscribe(data => {
           this.todoList = data.filter(p=>p.status!='completed');
+          this.upcomeTodo();
         });
         }
         // this.todoservice.getAllTodo().subscribe(data => {
@@ -116,5 +120,18 @@ constructor(private todoservice:TodoService,private fb:FormBuilder){
         this.searchedTodo=data;
       }
     })
+  }
+
+  upcomeTodo(){
+  const today = new Date();
+  const fiveDaysLater = new Date();
+  fiveDaysLater.setDate(today.getDate() + 5);
+    this.todoservice.getAllTodo().pipe(
+      map(tods=>tods.filter(td=>td.status!="completed"&&new Date(td.date)<=fiveDaysLater&& new Date(td.date)>=new Date()))
+    ).subscribe(data=>{
+        this.upcomingTodos=data;
+        console.log(this.upcomingTodos);
+    });  
+      
   }
 }
