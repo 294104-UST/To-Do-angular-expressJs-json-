@@ -5,56 +5,84 @@
       "task": "cut veggies",
       "status": "on going",
       "desc": "cut into rectangle shapes",
-      "date": "17-10-25"
+      "date": "17-10-25",
+      "userId": 1
     },
     {
       "id": "2",
       "task": "kill ants",
       "status": "on going",
       "desc": "kill ants using hit",
-      "date": "2025-09-23"
+      "date": "2025-09-23",
+      "userId": 1
     },
     {
       "id": "3",
       "task": "learn angular",
       "status": "pending",
       "desc": "studying hard",
-      "date": "2025-10-10"
+      "date": "2025-10-10",
+      "userId": 1
     },
     {
       "id": "4",
       "task": "go to scandy",
       "status": "pending",
       "desc": "eat water based scandy",
-      "date": "2025-09-21"
+      "date": "2025-09-21",
+      "userId": 1
     },
     {
       "id": "5",
       "task": "go to mandhi manzil",
       "status": "completed",
       "desc": "give chelavu",
-      "date": "24-09-25"
+      "date": "24-09-25",
+      "userId": 1
     },
     {
       "id": "6",
       "task": "meet sankeerth",
       "status": "completed",
       "desc": "go for dinner",
-      "date": "2025-10-04"
+      "date": "2025-10-04",
+      "userId": 2
     },
     {
       "task": "go to taj mahal",
       "status": "pending",
       "desc": "go with best friend",
       "date": "2025-11-20",
-      "id": "7"
+      "id": "7",
+      "userId": 2
     },
     {
       "id": "8",
       "task": "go for marathon",
       "status": "completed",
       "desc": "practice daily ",
-      "date": "2025-10-08"
+      "date": "2025-10-08",
+      "userId": 2
+    },
+    {
+      "id": "9",
+      "task": "collect ust tshirt",
+      "status": "pending",
+      "desc": "collect it when stock arrives",
+      "date": "17-10-25",
+      "userId": "2"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "Rosh123",
+      "password": "$2b$10$qIY9IVC7n69od2ovJ1xk7.8jnQGnklsQETHGgrLayC1S8geUFr0xG"
+    },
+    {
+      "id": "2",
+      "username": "Sankrth1809",
+      "password": "$2b$10$BmiB9mh2gLTSFp/IWwK03uwcwmmnTF4xlSjqloVdI0l20/CHZwQuq"
     }
   ]
 }

@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { TodoService } from './service/todo.service';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Todo } from './todoModel';
+import { Todo } from './Models/todoModel';
 import { CompletedListComponent } from './completed-list/completed-list.component';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 

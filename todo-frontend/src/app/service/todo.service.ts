@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, ObservedValueOf } from 'rxjs';
-import { Todo } from '../todoModel';
+import { Todo } from '../Models/todoModel';
+import { users } from '../Models/userModel';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,15 @@ export class TodoService {
   putTodo(tid:number,upTodo:Todo){
      console.log(`the url from service is : ${this.baseUrl}/put/${tid}`)
      return this.http.put<Todo>(`${this.baseUrl}/put/${tid}`,upTodo)
+  }
+
+  register(user:users):Observable<any>{
+    console.log("the going user details: ",user)
+    return this.http.post(`${this.baseUrl}/register`,user)
+  }
+
+  login(user:users):Observable<any>{
+    console.log("the going user details: ",user)
+    return this.http.post(`${this.baseUrl}/login`,user)
   }
 }
