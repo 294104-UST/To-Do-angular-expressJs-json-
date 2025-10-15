@@ -48,4 +48,12 @@ export class TodoService {
     console.log("the going user details: ",user)
     return this.http.post(`${this.baseUrl}/login`,user)
   }
+
+  isLoggedIn():boolean{
+    return !!localStorage.getItem('token')
+  }
+
+  logOut(){
+    localStorage.removeItem('token')
+  }
 }

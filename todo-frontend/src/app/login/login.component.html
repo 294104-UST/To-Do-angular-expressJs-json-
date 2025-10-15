@@ -1,0 +1,17 @@
+<form [formGroup]="logForm" (ngSubmit)="onSubmit()">
+    <label>Enter the username: 
+        <input
+            type="text"
+            formControlName="username"
+        />
+        <p *ngIf="logForm.get('username')?.hasError('required')">please enter userName</p>
+    </label>
+    <label>Enter the password: 
+        <input
+            type="password"
+            formControlName="password"
+        />
+        <p *ngIf="logForm.get('password')?.hasError('required')">please enter password</p>
+    </label>
+    <button type="submit">Login</button>
+</form>

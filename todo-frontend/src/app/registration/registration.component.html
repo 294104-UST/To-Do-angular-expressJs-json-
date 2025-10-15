@@ -1,0 +1,17 @@
+<form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <label>Enter the username: 
+        <input
+            type="text"
+            formControlName="username"
+        />
+        <p *ngIf="regForm.get('username')?.hasError('required')">please enter userName</p>
+    </label>
+    <label>Enter the password: 
+        <input
+            type="password"
+            formControlName="password"
+        />
+        <p *ngIf="regForm.get('password')?.hasError('required')">please enter password</p>
+    </label>
+    <button type="submit">Register</button>
+</form>

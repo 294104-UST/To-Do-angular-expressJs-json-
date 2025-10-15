@@ -1,2 +1,14 @@
-<router-outlet>
-<router-outlet />
+<nav>
+  <ng-container *ngIf="todoser.isLoggedIn()">
+    <a routerLink="/">Home</a>
+    <a routerLink="/add">Add Todo</a>
+    <a routerLink="/completed">Completed</a>
+    <a (click)="onLogout()" style="cursor: pointer;">Logout</a>
+  </ng-container>
+
+  <ng-container *ngIf="!todoser.isLoggedIn()">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </ng-container>
+</nav>
+<router-outlet></router-outlet>

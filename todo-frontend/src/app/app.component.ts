@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { TodoService } from './service/todo.service';
 import { CommonModule, JsonPipe } from '@angular/common';
@@ -15,5 +15,9 @@ import { ListTodoComponent } from './list-todo/list-todo.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent{
- 
+  constructor(public todoser:TodoService,private router:Router){}
+ onLogout(){
+  this.todoser.logOut()
+  this.router.navigate(['/login'])
+ }
 }

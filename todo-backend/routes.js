@@ -160,7 +160,7 @@ router.post('/login',async (req,res)=>{
             }
         }
         const token=jwt.sign(payLoad,"SECRET",{ expiresIn: '7d' });
-        res.status(200).json(token);
+        res.status(200).json({token});
     }catch(e){
         res.status(400).json({message:e.message});
     }
