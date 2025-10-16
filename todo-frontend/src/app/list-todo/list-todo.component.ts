@@ -103,6 +103,7 @@ constructor(private todoservice:TodoService,private fb:FormBuilder){
     this.todoservice.putTodo(tid,this.etodoForm.value).subscribe(()=>{
           this.todoservice.getAllTodo().subscribe(data => {
           this.todoList = data.filter(p=>p.status!='completed');
+          this.upcomeTodo();
         });
     })
   }

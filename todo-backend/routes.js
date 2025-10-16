@@ -4,6 +4,7 @@ const router=express.Router();
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken')
 const middleware=require(`./middleware`)
+const { v4: uuidv4 } = require('uuid')
 
 const url="http://localhost:3000/todos";
 const userUrl="http://localhost:3000/users";
@@ -44,7 +45,7 @@ router.post('/add',middleware,async(req,res)=>{
     const userInUse=req.user;
     try{
         const reqDat=req.body;
-        const response=await axios.post(url,{...reqDat,userId:userInUse.id});
+        const response=await axios.post(url,{...reqDat,id:uuidv4(),userId:userInUse.id});
         res.status(200).json(response.data);
     }
     catch(e){
@@ -56,7 +57,7 @@ router.delete('/del/:tid',middleware,async(req,res)=>{
     const userInUse=req.user;
         try{
             const todoid=req.params.tid;
-            const todo=await axios.get(`${url}/${tid}`)
+            const todo=await axios.get(`${url}/${todoid}`)
             if(userInUse.id==todo.data.userId){
                 await axios.delete(`${url}/${todoid}`);
                 res.status(200).json({message:"deleted successfully!!"});
@@ -77,7 +78,7 @@ router.patch('/patch/:tid',middleware,async (req,res)=>{
     const userInUse=req.user;
         try{
             const todoId=req.params.tid;
-            const todo=await axios.get(`${url}/${tid}`)
+            const todo=await axios.get(`${url}/${todoId}`)
             if(userInUse.id==todo.data.userId){
                 const upTodo=await axios.patch(`${url}/${todoId}`,req.body);
                 res.status(200).json(upTodo.data);
@@ -97,9 +98,9 @@ router.put(`/put/:tid`,middleware,async (req,res)=>{
     
         try{
             const todId=req.params.tid;
-            const todo=await axios.get(`${url}/${tid}`)
+            const todo=await axios.get(`${url}/${todId}`)
             if(userInUse.id==todo.data.userId){
-                const editRes=await axios.put(`${url}/${todId}`,req.body)
+                const editRes=await axios.put(`${url}/${todId}`,{...req.body,userId:userInUse.id})
                 res.status(200).json(editRes.data);
             }
             else{

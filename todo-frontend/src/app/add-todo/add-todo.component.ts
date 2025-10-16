@@ -21,7 +21,7 @@ export class AddTodoComponent implements OnInit{
   loadAllTodo() {
    this.todoservice.getAllTodo().subscribe(data=>{
       this.allTodos=data;
-      this.counter=this.allTodos.length;
+      //this.counter=this.allTodos.length;
    });
   }
 
@@ -36,9 +36,10 @@ export class AddTodoComponent implements OnInit{
   }
 
   submitHandle(){
-    console.log("all todos are : ",this.counter)
-    console.log('clicked/n',{id:++this.counter,...this.todoForm.value})
-    this.todoservice.postTodo({id:String(this.counter),...this.todoForm.value}).subscribe();
+    //console.log("all todos are : ",this.counter)
+    //console.log('clicked/n',{id:++this.counter,...this.todoForm.value})
+    //this.todoservice.postTodo({id:String(this.counter),...this.todoForm.value}).subscribe();
+    this.todoservice.postTodo(this.todoForm.value).subscribe();
     //this.addTodo.emit();
     this.todoForm.reset();
     this.router.navigate(['/']);

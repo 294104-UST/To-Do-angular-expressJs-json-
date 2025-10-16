@@ -52,9 +52,9 @@
       "task": "go to taj mahal",
       "status": "pending",
       "desc": "go with best friend",
-      "date": "2025-11-20",
-      "id": "7",
-      "userId": 2
+      "date": "2025-10-25",
+      "userId": "2",
+      "id": "7"
     },
     {
       "id": "8",
@@ -65,12 +65,20 @@
       "userId": 2
     },
     {
-      "id": "9",
-      "task": "collect ust tshirt",
-      "status": "pending",
-      "desc": "collect it when stock arrives",
-      "date": "17-10-25",
-      "userId": "2"
+      "task": "buy kurta",
+      "status": "completed",
+      "desc": "buy half kurta for wedding",
+      "date": "2025-10-17",
+      "userId": "2",
+      "id": "18564c00-e8d2-4b7b-bcb6-40d963ba47b7"
+    },
+    {
+      "id": "a75878c3-60a7-482c-a66c-848282d08404",
+      "task": "watch anime",
+      "status": "on going",
+      "desc": "watch vinlandSaga",
+      "date": "2025-10-24",
+      "userId": "3"
     }
   ],
   "users": [
@@ -83,6 +91,11 @@
       "id": "2",
       "username": "Sankrth1809",
       "password": "$2b$10$BmiB9mh2gLTSFp/IWwK03uwcwmmnTF4xlSjqloVdI0l20/CHZwQuq"
+    },
+    {
+      "id": "3",
+      "username": "Kuttu111",
+      "password": "$2b$10$j1Hl0IIdvxrI/nqlxALQXOShIe35k3Ibl1VJytSs/hp9B1u/nIIXW"
     }
   ]
 }
