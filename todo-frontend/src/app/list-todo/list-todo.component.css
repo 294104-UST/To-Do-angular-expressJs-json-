@@ -1,4 +1,3 @@
-/* Overall page background */
 :host {
   display: block;
   font-family: 'Georgia', serif;
@@ -169,4 +168,107 @@ div[ngIf] {
   color: #d98200;
   font-weight: bold;
 }
+
+/* ========================= */
+/* SEARCH BAR SECTION */
+/* ========================= */
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 8px 15px;
+  background: #fff7da;
+  border: 1px solid #f4d37b;
+  border-radius: 25px;
+  width: fit-content;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+label:hover {
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+}
+
+label input[type="text"] {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #3b3b3b;
+  width: 220px;
+}
+
+label input[type="text"]::placeholder {
+  color: #a58b65;
+  font-style: italic;
+}
+
+/* ========================= */
+/* SEARCH RESULTS SECTION */
+/* ========================= */
+
+div[ngIf*="searchedTodo"] {
+  margin-top: 15px;
+  padding: 15px;
+  background: #fdf8ea;
+  border-radius: 10px;
+  border: 1px solid #f2e2b8;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+div[ngIf*="searchedTodo"] li {
+  background: #fffef8;
+  border: 1px solid #f2e2b8;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  transition: background-color 0.2s ease-in-out;
+
+}
+
+div[ngIf*="searchedTodo"] li:hover {
+  background: #fff5cc;
+}
+
+div[ngIf*="searchedTodo"] li strong {
+  color: #6b4f1d;
+}
+
+/* ========================= */
+/* UPCOMING TODOS ENHANCEMENTS */
+/* ========================= */
+
+.upcoming-section {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.upcoming-section li {
+  transition: transform 0.2s,background-color 0.2s;
+
+}
+
+.upcoming-section li:hover {
+  transform: translateY(-2px);
+  background: #fff2cc;
+}
+
+.upcoming-section .date {
+  background: #ffe1a8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* ========================= */
+/* ANIMATIONS */
+/* ========================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 

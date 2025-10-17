@@ -1,0 +1,46 @@
+nav {
+  background-color: #90be6d; /* clean white background */
+  padding: 12px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: #333; /* dark gray text */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+  color: #0078d7; /* soft blue hover */
+  transform: scale(1.05);
+}
+
+nav a.active {
+  color: #0078d7; /* same blue for active link */
+  border-bottom: 2px solid #0078d7;
+  padding-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
+
+router-outlet {
+  display: block;
+  margin-top: 20px;
+}

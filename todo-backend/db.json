@@ -61,7 +61,7 @@
       "task": "go for marathon",
       "status": "completed",
       "desc": "practice daily ",
-      "date": "2025-10-08",
+      "date": "2025-10-19",
       "userId": 2
     },
     {
@@ -79,6 +79,14 @@
       "desc": "watch vinlandSaga",
       "date": "2025-10-24",
       "userId": "3"
+    },
+    {
+      "id": "68eebac1-a607-4862-938a-329f10880166",
+      "task": "Buy Kisses",
+      "status": "completed",
+      "desc": "From Kunnil hypermarket",
+      "date": "2025-10-17",
+      "userId": "2"
     }
   ],
   "users": [

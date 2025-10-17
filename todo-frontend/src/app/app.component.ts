@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { TodoService } from './service/todo.service';
 import { CommonModule, JsonPipe } from '@angular/common';
@@ -10,7 +10,7 @@ import { ListTodoComponent } from './list-todo/list-todo.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule,JsonPipe,RouterLink,CompletedListComponent,ListTodoComponent],
+  imports: [RouterOutlet,CommonModule,JsonPipe,RouterLink,CompletedListComponent,ListTodoComponent,RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -8,7 +8,7 @@
   <!-- search todo -->
   <label>
     🔍
-    <input type="text" [(ngModel)]="searchWord" (ngModelChange)="searchHandle()">
+    <input type="text" placeholder="search your todo here" [(ngModel)]="searchWord" (ngModelChange)="searchHandle()">
   </label>
 </div>
 <div *ngIf="searchedTodo">
